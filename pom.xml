@@ -20,11 +20,11 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven-compiler-plugin.version>3.13.0</maven-compiler-plugin.version>
-        <service-version>1.0-SNAPSHOT</service-version>
     </properties>
 
     <modules>
         <module>order-service</module>
+        <module>common</module>
     </modules>
 
     <dependencyManagement>
@@ -32,31 +32,37 @@
             <dependency>
                 <groupId>com.food.ordering.system</groupId>
                 <artifactId>order-domain-core</artifactId>
-                <version>${service-version}</version>
+                <version>${project.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>com.food.ordering.system</groupId>
                 <artifactId>order-application-service</artifactId>
-                <version>${service-version}</version>
+                <version>${project.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>com.food.ordering.system</groupId>
                 <artifactId>order-application</artifactId>
-                <version>${service-version}</version>
+                <version>${project.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>com.food.ordering.system</groupId>
                 <artifactId>order-dataaccess</artifactId>
-                <version>${service-version}</version>
+                <version>${project.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>com.food.ordering.system</groupId>
                 <artifactId>order-messaging</artifactId>
-                <version>${service-version}</version>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.food.ordering.system</groupId>
+                <artifactId>common-doamin</artifactId>
+                <version>${project.version}</version>
             </dependency>
 
         </dependencies>
