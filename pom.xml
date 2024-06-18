@@ -90,7 +90,7 @@
 
             <dependency>
                 <groupId>com.food.ordering.system</groupId>
-                <artifactId>kafka-module</artifactId>
+                <artifactId>kafka-model</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
