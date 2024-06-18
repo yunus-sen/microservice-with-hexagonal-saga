@@ -12,7 +12,7 @@
     <artifactId>common</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>common-doamin</module>
+        <module>common-domain</module>
     </modules>
 
     <properties>

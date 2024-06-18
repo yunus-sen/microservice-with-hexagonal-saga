@@ -1,12 +1,12 @@
 package com.food.ordering.system.order.service.domain;
 
-import com.food.ordering.system.domain.exception.DomainException;
 import com.food.ordering.system.order.service.domain.entiity.Order;
 import com.food.ordering.system.order.service.domain.entiity.Product;
 import com.food.ordering.system.order.service.domain.entiity.Restaurant;
 import com.food.ordering.system.order.service.domain.event.OrderCancelledEvent;
 import com.food.ordering.system.order.service.domain.event.OrderCreatedEvent;
 import com.food.ordering.system.order.service.domain.event.OrderPaidEvent;
+import com.food.ordering.system.order.service.domain.exception.OrderDomainException;
 import lombok.extern.slf4j.Slf4j;
 
 import java.time.ZoneId;
@@ -49,15 +49,15 @@ public class OrderDomainServiceImpl implements OrderDomainService {
     }
 
     @Override
-    public void cancelOrder(Order orderi, List<String> failureMessages) {
-        orderi.cancel(failureMessages);
-        log.info("Order is cancelled for order id : {}", orderi.getId().getValue());
+    public void cancelOrder(Order order, List<String> failureMessages) {
+        order.cancel(failureMessages);
+        log.info("Order is cancelled for order id : {}", order.getId().getValue());
     }
 
     private void validateRestaurant(Restaurant restaurant) {
         if (!restaurant.isActive())
-            throw new DomainException("Restaurans with id" + restaurant.getId().getValue() +
-                    " is not active. Cannot place order.");
+            throw new OrderDomainException("Restaurant with id " + restaurant.getId().getValue() +
+                    " is not active.");
     }
 
     private void setOrderProductInformation(Order order, Restaurant restaurant) {
