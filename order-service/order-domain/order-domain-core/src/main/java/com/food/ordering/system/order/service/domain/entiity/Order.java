@@ -152,6 +152,10 @@ public class Order extends AggregateRoot<OrderId> {
         return trackingId;
     }
 
+    public OrderStatus getOrderStatus() {
+        return orderStatus;
+    }
+
     public OrderStatus getStatus() {
         return orderStatus;
     }
