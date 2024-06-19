@@ -7,10 +7,10 @@ import com.food.ordering.system.applicaiton.order.service.domain.dto.create.Crea
 import com.food.ordering.system.applicaiton.order.service.domain.dto.create.CreateOrderResponse;
 import com.food.ordering.system.applicaiton.order.service.domain.dto.create.OrderAddress;
 import com.food.ordering.system.applicaiton.order.service.domain.dto.track.TrackOrderResponse;
-import com.food.ordering.system.applicaiton.order.service.domain.entiity.Order;
-import com.food.ordering.system.applicaiton.order.service.domain.entiity.OrderItem;
-import com.food.ordering.system.applicaiton.order.service.domain.entiity.Product;
-import com.food.ordering.system.applicaiton.order.service.domain.entiity.Restaurant;
+import com.food.ordering.system.applicaiton.order.service.domain.entity.Order;
+import com.food.ordering.system.applicaiton.order.service.domain.entity.OrderItem;
+import com.food.ordering.system.applicaiton.order.service.domain.entity.Product;
+import com.food.ordering.system.applicaiton.order.service.domain.entity.Restaurant;
 import com.food.ordering.system.applicaiton.order.service.domain.valueobject.StreetAddress;
 import org.springframework.stereotype.Component;
 

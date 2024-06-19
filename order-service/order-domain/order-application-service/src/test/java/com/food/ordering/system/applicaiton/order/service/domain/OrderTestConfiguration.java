@@ -4,8 +4,8 @@ import com.food.ordering.system.applicaiton.order.service.domain.port.output.mes
 import com.food.ordering.system.applicaiton.order.service.domain.port.output.message.publisher.payment.OrderCreatedPaymentRequestMessagePublisher;
 import com.food.ordering.system.applicaiton.order.service.domain.port.output.message.publisher.restaurantapproval.OrderPaidRestaurantRequestMEssagePublisher;
 import com.food.ordering.system.applicaiton.order.service.domain.port.output.repository.CustomerRepository;
+import com.food.ordering.system.applicaiton.order.service.domain.port.output.repository.OrderRespository;
 import com.food.ordering.system.applicaiton.order.service.domain.port.output.repository.RestaurantRepository;
-import com.food.ordering.system.applicaiton.order.service.domain.port.output.repository.orderRespository;
 import org.mockito.Mockito;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -29,8 +29,8 @@ public class OrderTestConfiguration {
     }
 
     @Bean
-    public orderRespository orderRespository() {
-        return Mockito.mock(orderRespository.class);
+    public OrderRespository orderRespository() {
+        return Mockito.mock(OrderRespository.class);
     }
 
     @Bean

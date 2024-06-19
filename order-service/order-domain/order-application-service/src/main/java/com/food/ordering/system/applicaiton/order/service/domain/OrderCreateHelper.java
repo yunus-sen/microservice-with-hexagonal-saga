@@ -1,12 +1,13 @@
 package com.food.ordering.system.applicaiton.order.service.domain;
 
 import com.food.ordering.system.applicaiton.order.service.domain.dto.create.CreateOrderCommand;
-import com.food.ordering.system.applicaiton.order.service.domain.entiity.Order;
-import com.food.ordering.system.applicaiton.order.service.domain.entiity.Restaurant;
+import com.food.ordering.system.applicaiton.order.service.domain.entity.Order;
+import com.food.ordering.system.applicaiton.order.service.domain.entity.Restaurant;
 import com.food.ordering.system.applicaiton.order.service.domain.event.OrderCreatedEvent;
 import com.food.ordering.system.applicaiton.order.service.domain.exception.OrderDomainException;
 import com.food.ordering.system.applicaiton.order.service.domain.mapper.OrderDataMapper;
 import com.food.ordering.system.applicaiton.order.service.domain.port.output.repository.CustomerRepository;
+import com.food.ordering.system.applicaiton.order.service.domain.port.output.repository.OrderRespository;
 import com.food.ordering.system.applicaiton.order.service.domain.port.output.repository.RestaurantRepository;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -21,7 +22,7 @@ import java.util.UUID;
 public class OrderCreateHelper {
 
     private final OrderDataMapper orderDataMapper;
-    private final com.food.ordering.system.applicaiton.order.service.domain.port.output.repository.orderRespository orderRespository;
+    private final OrderRespository orderRespository;
     private final OrderDomainService orderDomainService;
     private final CustomerRepository customerRepository;
     private final RestaurantRepository restaurantRepository;

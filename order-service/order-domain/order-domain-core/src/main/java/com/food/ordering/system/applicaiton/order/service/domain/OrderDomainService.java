@@ -1,7 +1,7 @@
 package com.food.ordering.system.applicaiton.order.service.domain;
 
-import com.food.ordering.system.applicaiton.order.service.domain.entiity.Order;
-import com.food.ordering.system.applicaiton.order.service.domain.entiity.Restaurant;
+import com.food.ordering.system.applicaiton.order.service.domain.entity.Order;
+import com.food.ordering.system.applicaiton.order.service.domain.entity.Restaurant;
 import com.food.ordering.system.applicaiton.order.service.domain.event.OrderCancelledEvent;
 import com.food.ordering.system.applicaiton.order.service.domain.event.OrderCreatedEvent;
 import com.food.ordering.system.applicaiton.order.service.domain.event.OrderPaidEvent;

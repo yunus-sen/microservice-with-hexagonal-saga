@@ -10,16 +10,16 @@ import com.food.ordering.system.applicaiton.order.service.domain.dto.create.Crea
 import com.food.ordering.system.applicaiton.order.service.domain.dto.create.CreateOrderResponse;
 import com.food.ordering.system.applicaiton.order.service.domain.dto.create.OrderAddress;
 import com.food.ordering.system.applicaiton.order.service.domain.dto.create.OrderItem;
-import com.food.ordering.system.applicaiton.order.service.domain.entiity.Customer;
-import com.food.ordering.system.applicaiton.order.service.domain.entiity.Order;
-import com.food.ordering.system.applicaiton.order.service.domain.entiity.Product;
-import com.food.ordering.system.applicaiton.order.service.domain.entiity.Restaurant;
+import com.food.ordering.system.applicaiton.order.service.domain.entity.Customer;
+import com.food.ordering.system.applicaiton.order.service.domain.entity.Order;
+import com.food.ordering.system.applicaiton.order.service.domain.entity.Product;
+import com.food.ordering.system.applicaiton.order.service.domain.entity.Restaurant;
 import com.food.ordering.system.applicaiton.order.service.domain.exception.OrderDomainException;
 import com.food.ordering.system.applicaiton.order.service.domain.mapper.OrderDataMapper;
 import com.food.ordering.system.applicaiton.order.service.domain.port.input.service.OrderApplicationService;
 import com.food.ordering.system.applicaiton.order.service.domain.port.output.repository.CustomerRepository;
+import com.food.ordering.system.applicaiton.order.service.domain.port.output.repository.OrderRespository;
 import com.food.ordering.system.applicaiton.order.service.domain.port.output.repository.RestaurantRepository;
-import com.food.ordering.system.applicaiton.order.service.domain.port.output.repository.orderRespository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -49,7 +49,7 @@ class OrderApplicationServiceTest {
     private OrderDataMapper orderDataMapper;
 
     @Autowired
-    private orderRespository orderRepository;
+    private OrderRespository orderRepository;
 
     @Autowired
     private CustomerRepository customerRepository;
