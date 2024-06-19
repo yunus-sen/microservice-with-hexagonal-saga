@@ -25,7 +25,7 @@ public class Money {
         return new Money(setScale(amount.add(money.amount)));
     }
 
-    public Money substract(Money money) {
+    public Money subtract(Money money) {
         return new Money(setScale(amount.subtract(money.amount)));
     }
 
