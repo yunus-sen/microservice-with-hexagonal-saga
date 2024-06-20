@@ -1,6 +1,7 @@
 package com.food.ordering.system.order.service.messaging.publisher.kafka;
 
 import com.food.ordering.system.applicaiton.kafka.order.avro.model.PaymentRequestAvroModel;
+import com.food.ordering.system.applicaiton.kafka.producer.KafkaMessageHelper;
 import com.food.ordering.system.applicaiton.kafka.producer.service.KafkaProducer;
 import com.food.ordering.system.applicaiton.order.service.domain.config.OrderServiceConfigData;
 import com.food.ordering.system.applicaiton.order.service.domain.event.OrderCreatedEvent;
@@ -16,7 +17,7 @@ import org.springframework.stereotype.Component;
 public class CreateOrderKafkaMessagePublisher implements OrderCreatedPaymentRequestMessagePublisher {
 
     private final OrderServiceConfigData orderServiceConfigData;
-    private final OrderKafkaMessageHelper orderKafkaMessageHelper;
+    private final KafkaMessageHelper kafkaMessageHelper;
     private final OrderMessagingDataMapper orderMessagingDataMapper;
     private final KafkaProducer<String, PaymentRequestAvroModel> kafkaProducer;
 
@@ -32,7 +33,7 @@ public class CreateOrderKafkaMessagePublisher implements OrderCreatedPaymentRequ
             kafkaProducer.send(orderServiceConfigData.getPaymentRequestTopicName(),
                     orderId,
                     paymentRequestAvroModel,
-                    orderKafkaMessageHelper.getKafkaCallBack(orderServiceConfigData.getPaymentRequestTopicName(),
+                    kafkaMessageHelper.getKafkaCallBack(orderServiceConfigData.getPaymentRequestTopicName(),
                             paymentRequestAvroModel,
                             orderId,
                             "PaymentRequestAvroModel"));

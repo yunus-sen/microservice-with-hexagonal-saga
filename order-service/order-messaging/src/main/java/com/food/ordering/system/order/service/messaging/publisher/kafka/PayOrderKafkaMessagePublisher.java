@@ -1,6 +1,7 @@
 package com.food.ordering.system.order.service.messaging.publisher.kafka;
 
 import com.food.ordering.system.applicaiton.kafka.order.avro.model.RestaurantApprovalRequestAvroModel;
+import com.food.ordering.system.applicaiton.kafka.producer.KafkaMessageHelper;
 import com.food.ordering.system.applicaiton.kafka.producer.service.KafkaProducer;
 import com.food.ordering.system.applicaiton.order.service.domain.config.OrderServiceConfigData;
 import com.food.ordering.system.applicaiton.order.service.domain.event.OrderPaidEvent;
@@ -16,7 +17,7 @@ import org.springframework.stereotype.Component;
 public class PayOrderKafkaMessagePublisher implements OrderPaidRestaurantRequestMEssagePublisher {
 
     private final OrderServiceConfigData orderServiceConfigData;
-    private final OrderKafkaMessageHelper orderKafkaMessageHelper;
+    private final KafkaMessageHelper kafkaMessageHelper;
     private final OrderMessagingDataMapper orderMessagingDataMapper;
     private final KafkaProducer<String, RestaurantApprovalRequestAvroModel> kafkaProducer;
 
@@ -31,7 +32,7 @@ public class PayOrderKafkaMessagePublisher implements OrderPaidRestaurantRequest
             kafkaProducer.send(orderServiceConfigData.getRestaurantApprovalRequestTopicName(),
                     orderId,
                     restaurantApprovalRequestAvroModel,
-                    orderKafkaMessageHelper.getKafkaCallBack(orderServiceConfigData.getRestaurantApprovalRequestTopicName(),
+                    kafkaMessageHelper.getKafkaCallBack(orderServiceConfigData.getRestaurantApprovalRequestTopicName(),
                             restaurantApprovalRequestAvroModel,
                             orderId,
                             "RestaurantApprovalRequestAvroModel"));
