@@ -1,11 +1,11 @@
 package com.food.ordering.system.order.service.messaging.publisher.kafka;
 
-import com.food.ordering.system.applicaiton.kafka.order.avro.model.RestaurantApprovalRequestAvroModel;
 import com.food.ordering.system.applicaiton.kafka.producer.KafkaMessageHelper;
 import com.food.ordering.system.applicaiton.kafka.producer.service.KafkaProducer;
 import com.food.ordering.system.applicaiton.order.service.domain.config.OrderServiceConfigData;
 import com.food.ordering.system.applicaiton.order.service.domain.event.OrderPaidEvent;
-import com.food.ordering.system.applicaiton.order.service.domain.port.output.message.publisher.restaurantapproval.OrderPaidRestaurantRequestMEssagePublisher;
+import com.food.ordering.system.applicaiton.order.service.domain.port.output.message.publisher.restaurantapproval.OrderPaidRestaurantRequestMessagePublisher;
+import com.food.ordering.system.kafka.order.avro.model.RestaurantApprovalRequestAvroModel;
 import com.food.ordering.system.order.service.messaging.mapper.OrderMessagingDataMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
 @Slf4j
 @Component
 @RequiredArgsConstructor
-public class PayOrderKafkaMessagePublisher implements OrderPaidRestaurantRequestMEssagePublisher {
+public class PayOrderKafkaMessagePublisher implements OrderPaidRestaurantRequestMessagePublisher {
 
     private final OrderServiceConfigData orderServiceConfigData;
     private final KafkaMessageHelper kafkaMessageHelper;

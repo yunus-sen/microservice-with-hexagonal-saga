@@ -14,13 +14,14 @@ import java.util.UUID;
 @Component
 public class PaymentMessagingDataMapper {
 
-    public PaymentResponseAvroModel paymentCompletedEventToPaymentResponseAvroModel(PaymentCompletedEvent paymentCompletedEvent) {
+    public PaymentResponseAvroModel
+    paymentCompletedEventToPaymentResponseAvroModel(PaymentCompletedEvent paymentCompletedEvent) {
         return PaymentResponseAvroModel.newBuilder()
                 .setId(UUID.randomUUID().toString())
                 .setSagaId("")
                 .setPaymentId(paymentCompletedEvent.getPayment().getId().getValue().toString())
-                .setCustomerId(paymentCompletedEvent.getPayment().getCustomerId().toString())
-                .setOrderId(paymentCompletedEvent.getPayment().getOrderId().toString())
+                .setCustomerId(paymentCompletedEvent.getPayment().getCustomerId().getValue().toString())
+                .setOrderId(paymentCompletedEvent.getPayment().getOrderId().getValue().toString())
                 .setPrice(paymentCompletedEvent.getPayment().getPrice().getAmount())
                 .setCreatedAt(paymentCompletedEvent.getCreatedAt().toInstant())
                 .setPaymentStatus(PaymentStatus.valueOf(paymentCompletedEvent.getPayment().getPaymentStatus().name()))
