@@ -8,7 +8,7 @@ target/
 *.iws
 *.iml
 *.ipr
-
+/infrastructure/docker-compose/volumes
 ### Eclipse ###
 .apt_generated
 .classpath
