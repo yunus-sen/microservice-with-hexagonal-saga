@@ -2,7 +2,7 @@ package com.food.ordering.system.order.service.dataaccess.order.adapter;
 
 import com.food.ordering.system.applicaiton.domain.valueobject.OrderId;
 import com.food.ordering.system.applicaiton.order.service.domain.entity.Order;
-import com.food.ordering.system.applicaiton.order.service.domain.port.output.repository.OrderRespository;
+import com.food.ordering.system.applicaiton.order.service.domain.port.output.repository.OrderRepository;
 import com.food.ordering.system.applicaiton.order.service.domain.valueobject.TrackingId;
 import com.food.ordering.system.order.service.dataaccess.order.entity.OrderEntity;
 import com.food.ordering.system.order.service.dataaccess.order.mapper.OrderDataAccessMapper;
@@ -14,7 +14,7 @@ import java.util.Optional;
 
 @Component
 @RequiredArgsConstructor
-public class OrderRepositoryImpl implements OrderRespository {
+public class OrderRepositoryImpl implements OrderRepository {
 
     private final OrderJpaRepository orderJpaRepository;
     private final OrderDataAccessMapper orderDataAccessMapper;

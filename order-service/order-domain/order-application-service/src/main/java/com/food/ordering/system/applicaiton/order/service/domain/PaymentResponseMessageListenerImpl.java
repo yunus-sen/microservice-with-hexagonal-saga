@@ -1,7 +1,6 @@
 package com.food.ordering.system.applicaiton.order.service.domain;
 
 import com.food.ordering.system.applicaiton.order.service.domain.dto.message.PaymentResponse;
-import com.food.ordering.system.applicaiton.order.service.domain.event.OrderPaidEvent;
 import com.food.ordering.system.applicaiton.order.service.domain.port.input.message.listener.payment.PaymentResponseMessageListener;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -22,17 +21,15 @@ public class PaymentResponseMessageListenerImpl implements PaymentResponseMessag
 
     @Override
     public void paymentCompleted(PaymentResponse paymentResponse) {
-        OrderPaidEvent orderPaidEvent = orderPaymentSaga.process(paymentResponse);
-        log.info("Publishing orderPaidEvent for id: {}", paymentResponse.getOrderId());
-        orderPaidEvent.fire();
+        orderPaymentSaga.process(paymentResponse);
+        log.info("Order Payment Saga process operation is completed for order id: {}", paymentResponse.getOrderId());
     }
 
     @Override
-    public void paymentCanceled(PaymentResponse paymentResponse) {
+    public void paymentCancelled(PaymentResponse paymentResponse) {
         orderPaymentSaga.rollback(paymentResponse);
-        log.info("Order is roll backed for order id: {} with failure message:{}",
+        log.info("Order is roll backed for order id: {} with failure messages: {}",
                 paymentResponse.getOrderId(),
                 String.join(FAILURE_MESSAGE_DELIMITER, paymentResponse.getFailureMessages()));
-
     }
 }
