@@ -8,7 +8,9 @@ import com.food.ordering.system.applicaiton.domain.valueobject.RestaurantOrderSt
 import com.food.ordering.system.applicaiton.order.service.domain.dto.create.CreateOrderCommand;
 import com.food.ordering.system.applicaiton.order.service.domain.dto.create.CreateOrderResponse;
 import com.food.ordering.system.applicaiton.order.service.domain.dto.create.OrderAddress;
+import com.food.ordering.system.applicaiton.order.service.domain.dto.message.CustomerModel;
 import com.food.ordering.system.applicaiton.order.service.domain.dto.track.TrackOrderResponse;
+import com.food.ordering.system.applicaiton.order.service.domain.entity.Customer;
 import com.food.ordering.system.applicaiton.order.service.domain.entity.Order;
 import com.food.ordering.system.applicaiton.order.service.domain.entity.OrderItem;
 import com.food.ordering.system.applicaiton.order.service.domain.entity.Product;
@@ -82,6 +84,13 @@ public class OrderDataMapper {
                         .quantity(orderItem.getQuantity())
                         .subTotal(new Money(orderItem.getSubTotal()))
                         .build()).collect(Collectors.toList());
+    }
+
+    public Customer customerModelToCustomer(CustomerModel customerModel) {
+        return new Customer(new CustomerId(UUID.fromString(customerModel.getId())),
+                customerModel.getUsername(),
+                customerModel.getFirstName(),
+                customerModel.getLastName());
     }
 
     public OrderApprovalEventPayload orderPaidEventToOrderApprovalEventPayload(OrderPaidEvent orderPaidEvent) {
