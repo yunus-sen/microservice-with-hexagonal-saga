@@ -11,13 +11,15 @@
 
     <artifactId>order-messaging</artifactId>
 
-    <properties>
-    </properties>
-
     <dependencies>
         <dependency>
             <groupId>com.food.ordering.system</groupId>
             <artifactId>order-application-service</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.food.ordering.system</groupId>
+            <artifactId>common-messaging</artifactId>
         </dependency>
 
         <dependency>
@@ -33,6 +35,11 @@
         <dependency>
             <groupId>com.food.ordering.system</groupId>
             <artifactId>kafka-consumer</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
         </dependency>
     </dependencies>
 

@@ -1,5 +1,8 @@
 package com.food.ordering.system.applicaiton.order.service.domain.mapper;
 
+import com.food.ordering.system.applicaiton.domain.event.payload.OrderApprovalEventPayload;
+import com.food.ordering.system.applicaiton.domain.event.payload.OrderApprovalEventProduct;
+import com.food.ordering.system.applicaiton.domain.event.payload.OrderPaymentEventPayload;
 import com.food.ordering.system.applicaiton.domain.valueobject.CustomerId;
 import com.food.ordering.system.applicaiton.domain.valueobject.Money;
 import com.food.ordering.system.applicaiton.domain.valueobject.PaymentOrderStatus;
@@ -18,9 +21,6 @@ import com.food.ordering.system.applicaiton.order.service.domain.entity.Restaura
 import com.food.ordering.system.applicaiton.order.service.domain.event.OrderCancelledEvent;
 import com.food.ordering.system.applicaiton.order.service.domain.event.OrderCreatedEvent;
 import com.food.ordering.system.applicaiton.order.service.domain.event.OrderPaidEvent;
-import com.food.ordering.system.applicaiton.order.service.domain.outbox.model.approvel.OrderApprovalEventPayload;
-import com.food.ordering.system.applicaiton.order.service.domain.outbox.model.approvel.OrderApprovalEventProduct;
-import com.food.ordering.system.applicaiton.order.service.domain.outbox.model.payment.OrderPaymentEventPayload;
 import com.food.ordering.system.applicaiton.order.service.domain.valueobject.StreetAddress;
 import org.springframework.stereotype.Component;
 

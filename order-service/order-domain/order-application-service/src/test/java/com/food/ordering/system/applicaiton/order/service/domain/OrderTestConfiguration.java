@@ -1,7 +1,5 @@
 package com.food.ordering.system.applicaiton.order.service.domain;
 
-import com.food.ordering.system.applicaiton.order.service.domain.port.output.message.publisher.payment.PaymentRequestMessagePublisher;
-import com.food.ordering.system.applicaiton.order.service.domain.port.output.message.publisher.restaurant.approval.RestaurantApprovalRequestMessagePublisher;
 import com.food.ordering.system.applicaiton.order.service.domain.port.output.repository.ApprovalOutboxRepository;
 import com.food.ordering.system.applicaiton.order.service.domain.port.output.repository.CustomerRepository;
 import com.food.ordering.system.applicaiton.order.service.domain.port.output.repository.OrderRepository;
@@ -13,17 +11,6 @@ import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication(scanBasePackages = "com.food.ordering.system")
 public class OrderTestConfiguration {
-
-
-    @Bean
-    public PaymentRequestMessagePublisher paymentRequestMessagePublisher() {
-        return Mockito.mock(PaymentRequestMessagePublisher.class);
-    }
-
-    @Bean
-    public RestaurantApprovalRequestMessagePublisher restaurantApprovalRequestMessagePublisher() {
-        return Mockito.mock(RestaurantApprovalRequestMessagePublisher.class);
-    }
 
     @Bean
     public OrderRepository orderRepository() {
